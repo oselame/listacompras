@@ -18,7 +18,7 @@ const List = () => (
             <p className="title">Mês</p>
             <div className="list-card-body">
 
-                <ListItem icon={faShoppingBasket} text="1 Item(s) Restante"/>
+                <ListItem icon={faShoppingBasket} text="1 Item(s) Restante" />
 
                 <ListItem icon={faCheck} text="2 Item(s) Comprados"/>
 
