@@ -7,30 +7,34 @@ import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import Divider from '@material-ui/core/Divider';
 
+import { Link } from 'react-router-dom';
+
 import './CustomCard.css';
 
 const CustomCard = (props) => (
 
     <div className={props.containerClass}>
-        <Card className="card">
-            <CardActionArea className="card-action-area">
-                <CardContent className="card-content">
-                    
-                    { props.children }
+        <Link to={props.link}>
+            <Card className="card">
+                <CardActionArea className="card-action-area">
+                    <CardContent className="card-content">
+                        
+                        { props.children }
 
-                </CardContent>
-            </CardActionArea>
+                    </CardContent>
+                </CardActionArea>
 
-            { props.footer && (
-                <div>
-                    <Divider />
-                    <CardActions className="card-footer">
-                        { props.footer }
-                    </CardActions>
-                </div>
-            )}
+                { props.footer && (
+                    <div>
+                        <Divider />
+                        <CardActions className="card-footer">
+                            { props.footer }
+                        </CardActions>
+                    </div>
+                )}
 
-        </Card>
+            </Card>
+        </Link>
     </div>
 )
 
