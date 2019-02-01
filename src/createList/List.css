@@ -1,0 +1,21 @@
+.form-container {
+    display: flex;
+    background-color: #FFFFFF;
+    padding: 20px;
+    border-radius: 4px;
+    flex-direction: column;
+}
+
+.form-row > div {
+    min-width: 200px;
+    margin: 0px 10px;
+}
+
+.form-row button {
+    margin: 10px;
+    width: 150px;
+}
+
+.form-row {
+
+}
