@@ -14,7 +14,8 @@ class Form extends Component {
         product: '',
         quantity: '',
         unit: '',
-        price: ''
+        price: '',
+        showErros: false
     };
 
     handleChange = (event) => {
@@ -23,7 +24,19 @@ class Form extends Component {
 
     handleSubmit = () => {
         const { list, product, quantity, unit, price } = this.state;
-        this.props.addProduct({ product, quantity, unit, price }, list);
+        if (!list || !product || !quantity || !unit) {
+            this.setState({ showErros: true });
+        } else {
+            this.props.addProduct({ product, quantity, unit, price }, list);
+            this.setState({
+                list: '',
+                product: '',
+                quantity: '',
+                unit: '',
+                price: '',
+                showErros: false
+            });        
+        }
     }
 
     render() {
@@ -36,6 +49,7 @@ class Form extends Component {
                         value={ this.state.list }
                         onChange={ this.handleChange }
                         required
+                        error={ !this.state.list && this.state.showErros }
                     />
         
                     <Button variant="outlined" color="secondary" onClick={this.handleSubmit}>Adicionar</Button>
@@ -47,6 +61,7 @@ class Form extends Component {
                         value={ this.state.product }
                         onChange={ this.handleChange }
                         required
+                        error={ !this.state.product && this.state.showErros }
                     />
                     <TextField
                         label="Quantidade"
@@ -54,6 +69,7 @@ class Form extends Component {
                         value={ this.state.quantity }
                         onChange={ this.handleChange }
                         required
+                        error={ !this.state.quantity && this.state.showErros }
                     />
                     <TextField
                         select
@@ -62,6 +78,7 @@ class Form extends Component {
                         value={ this.state.unit }
                         onChange={ this.handleChange }
                         required
+                        error={ !this.state.unit && this.state.showErros }
                     >
                         { 
                             unitys.map(option => (
