@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
@@ -7,59 +7,81 @@ import Button  from '@material-ui/core/Button';
 
 const unitys = ['kg', 'lt', 'un'];
 
-const Form = () => (
-    <form className="form-container">
-        <div className="form-row">
-            <TextField
-                label="Lista"
-                name="list"
-                value={''}
-                onChange={ () => {} }
-                required
-            />
+class Form extends Component {
 
-            <Button variant="outlined" color="secondary">Adicionar</Button>
-        </div>
-        <div className="form-row">
-            <TextField
-                label="Produto"
-                name="product"
-                value={''}
-                onChange={ () => {} }
-                required
-            />
-            <TextField
-                label="Quantidade"
-                name="quantity"
-                value={''}
-                onChange={ () => {} }
-                required
-            />
-            <TextField
-                select
-                label="Unidade"
-                name="unity"
-                value={''}
-                onChange={ () => {} }
-                required
-            >
-                { 
-                    unitys.map(option => (
-                        <MenuItem key={option} value={option}>{option}</MenuItem>
-                    ))
-                }
-            </TextField>
-            <TextField
-                label="Preço"
-                name="price"
-                value={''}
-                onChange={ () => {} }
-                InputProps={{
-                    startAdornment: <InputAdornment position="start">R$</InputAdornment>
-                }}
-            />            
-        </div>
-    </form>
-)
+    state = {
+        list: '',
+        product: '',
+        quantity: '',
+        unit: '',
+        price: ''
+    };
+
+    handleChange = (event) => {
+        this.setState({ [event.target.name]: event.target.value })
+    }
+
+    handleSubmit = () => {
+        const { list, product, quantity, unit, price } = this.state;
+        this.props.addProduct({ product, quantity, unit, price }, list);
+    }
+
+    render() {
+        return (
+            <form className="form-container">
+                <div className="form-row">
+                    <TextField
+                        label="Lista"
+                        name="list"
+                        value={ this.state.list }
+                        onChange={ this.handleChange }
+                        required
+                    />
+        
+                    <Button variant="outlined" color="secondary" onClick={this.handleSubmit}>Adicionar</Button>
+                </div>
+                <div className="form-row">
+                    <TextField
+                        label="Produto"
+                        name="product"
+                        value={ this.state.product }
+                        onChange={ this.handleChange }
+                        required
+                    />
+                    <TextField
+                        label="Quantidade"
+                        name="quantity"
+                        value={ this.state.quantity }
+                        onChange={ this.handleChange }
+                        required
+                    />
+                    <TextField
+                        select
+                        label="Unidade"
+                        name="unit"
+                        value={ this.state.unit }
+                        onChange={ this.handleChange }
+                        required
+                    >
+                        { 
+                            unitys.map(option => (
+                                <MenuItem key={option} value={option}>{option}</MenuItem>
+                            ))
+                        }
+                    </TextField>
+                    <TextField
+                        label="Preço"
+                        name="price"
+                        value={ this.state.price }
+                        onChange={ this.handleChange }
+                        InputProps={{
+                            startAdornment: <InputAdornment position="start">R$</InputAdornment>
+                        }}
+                    />            
+                </div>
+            </form>
+        )
+    }
+} 
 
 export default Form;
