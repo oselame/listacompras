@@ -27,6 +27,7 @@ class CreateList extends Component {
                                 key={item.id} 
                                 item={item} 
                                 deleteProduct={this.props.deleteProduct}
+                                toogleProduct={this.props.toogleProduct}
                             />
                         ) 
                     }
