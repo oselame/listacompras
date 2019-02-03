@@ -2,7 +2,9 @@ import React from 'react'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
-
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { Creators as FormAction } from '../store/actions/form';
 
 const ListItemFooter = (props) => (
     <div className="list-card-footer">
@@ -11,6 +13,7 @@ const ListItemFooter = (props) => (
                 icon={faPen}
                 color="#00b0ff"
                 size="1x"
+                onClick={() => props.startUpdate(props.item)}
             />
             <FontAwesomeIcon 
                 onClick={() => props.deleteProduct(props.item.id)}
@@ -23,4 +26,6 @@ const ListItemFooter = (props) => (
     </div>
 )
 
-export default ListItemFooter;
+const mapDispatchToProps = dispatch => bindActionCreators(FormAction, dispatch);
+
+export default connect(null, mapDispatchToProps)(ListItemFooter);
