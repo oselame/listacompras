@@ -37,6 +37,7 @@ export default function lista(state = INITIAL_STATE, action) {
     }
 }
 
+// Helpers
 function toggleItem(items, productId) {
     const index = items.findIndex(item => item.id === productId);
     return [
@@ -50,7 +51,18 @@ function getItemTotal(product) {
     return product.price * product.quantity;
 }
 
+// Selectors
 export const getListTotal = createSelector(
     state => state.list.items,
     items => items.reduce((total, item) => total + item.total, 0),
+);
+
+export const getOpenedItems = createSelector(
+    state => state.list.items,
+    items => items.filter(item => !item.checked).length
+);
+
+export const getClosedItems = createSelector(
+    state => state.list.items,
+    items => items.filter(item => item.checked).length
 );
