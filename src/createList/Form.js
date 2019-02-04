@@ -60,6 +60,7 @@ class Form extends Component {
         const { id, checked } = this.props.form.productToUpdate;
         this.props.updateProduct({ product, quantity, unit, price, id, checked }, list);
         this.clearState();
+        this.props.finishUpdate();
     }
     
     clearState = () => {
