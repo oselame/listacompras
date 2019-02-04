@@ -45,15 +45,32 @@ class Form extends Component {
         if (!list || !product || !quantity || !unit) {
             this.setState({ showErros: true });
         } else {
-            this.props.addProduct({ product, quantity, unit, price }, list);
-            this.setState({
-                product: '',
-                quantity: '',
-                unit: '',
-                price: '',
-                showErros: false
-            });        
+            this.props.form.action === 'new'
+            ? this.addItem(list, product, quantity, unit, price)
+            : this.updateItem(list, product, quantity, unit, price)
         }
+    }
+    
+    addItem = (list, product, quantity, unit, price) => {
+        this.props.addProduct({ product, quantity, unit, price }, list);
+        this.clearState();
+    }
+    
+    updateItem = (list, product, quantity, unit, price) => {
+        const { id, checked } = this.props.form.productToUpdate;
+        this.props.updateProduct({ product, quantity, unit, price, id, checked }, list);
+        this.clearState();
+    }
+    
+    clearState = () => {
+        this.setState({
+            product: '',
+            quantity: '',
+            unit: '',
+            price: '',
+            showErros: false
+        });        
+
     }
 
     render() {
@@ -69,7 +86,7 @@ class Form extends Component {
                         error={ !this.state.list && this.state.showErros }
                     />
         
-                    <Button variant="outlined" color="secondary" onClick={this.handleSubmit}>Adicionar</Button>
+                    <Button variant="outlined" color="secondary" onClick={this.handleSubmit}>Salvar</Button>
                 </div>
                 <div className="form-row">
                     <TextField
