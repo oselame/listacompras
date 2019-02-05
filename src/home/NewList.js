@@ -4,7 +4,7 @@ import CustomCard from '../common/CustomCard';
 
 const NewList = (props) => (
     <CustomCard containerClass="new-list-container"
-        link="/lista"
+        link="/lista/novo"
         action={props.newList}
         >
         <div>
