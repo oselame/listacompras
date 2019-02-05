@@ -27,6 +27,7 @@ class Form extends Component {
         if (this.props.form.action === 'update' && prevProps.form.productToUpdate !== this.props.form.productToUpdate) {
             const { product, quantity, unit, price } = this.props.form.productToUpdate;
             this.setState({
+                list: this.props.form.listToUpdate,
                 product,
                 quantity,
                 unit,

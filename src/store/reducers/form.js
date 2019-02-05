@@ -2,6 +2,7 @@ import { Types } from '../actions/form';
 
 const INITIAL_STATE = {
     action: 'new',
+    listToUpdate: null,
     productToUpdate: {},
 };
 
@@ -10,6 +11,7 @@ export default function form(state=INITIAL_STATE, action) {
         case Types.START_UPDATE:
             return {
                 action: 'update',
+                listToUpdate: action.list,
                 productToUpdate: action.product,
             }
     
@@ -17,6 +19,7 @@ export default function form(state=INITIAL_STATE, action) {
             return {
                 action: 'new',
                 productToUpdate: {},
+                listToUpdate: {},
             }
 
         default:
