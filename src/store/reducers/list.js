@@ -9,8 +9,14 @@ const INITIAL_STATE = {
 
 export default function lista(state = INITIAL_STATE, action) {
     switch (action.type) {
+        case Types.NEW_LIST:
+            return {
+                ...INITIAL_STATE,
+                date: getDate()
+            }
         case Types.ADD_PRODUCT:
             return {
+                ...state,
                 list: action.list, 
                 items: [ 
                     ...state.items, 
@@ -35,6 +41,7 @@ export default function lista(state = INITIAL_STATE, action) {
 
         case Types.UPDATE_PRODUCT:
             return {
+                ...state,
                 list: action.list,
                 items: updateProduct(state.items, action.product)
             }
@@ -64,6 +71,12 @@ function updateProduct(items, product) {
 
 function getItemTotal(product) {
     return product.price * product.quantity;
+}
+
+function getDate() {
+    const date = new Date();
+    const options = { year: 'numeric', month: '2-digit', day: '2-digit' }
+    return date.toLocaleDateString('pt-BR', options);
 }
 
 // Selectors
