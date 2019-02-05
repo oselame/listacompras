@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux';
 import Form from './Form';
 import ListItem from './ListItem';
 import { Creators as ListActions } from '../store/actions/list';
+import NewItem from './NewItem';
 
 import './List.css';
 
@@ -35,6 +36,12 @@ class CreateList extends Component {
                                 toogleProduct={this.props.toogleProduct}
                             />
                         ) 
+                    }
+
+                    {
+                        this.props.match.params.action === 'edicao' &&
+                        <NewItem />
+
                     }
                 </div>
         
