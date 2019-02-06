@@ -10,11 +10,16 @@ import CustomCard from '../common/CustomCard';
 const NewItem = (props) => (
     <CustomCard
         link="#"
+        action={ () => props.startAdd(props.list)}
         containerClass="list-item"
     >
-        <p className="title">Novo Produto</p>
-        <FontAwesomeIcon icon={faPlusCircle} color="#e4e4e4" size="8x" />
+        <div className="new-item">
+            <p className="title">Novo Produto</p>
+            <FontAwesomeIcon icon={faPlusCircle} color="#e4e4e4" size="8x" />
+        </div>
     </CustomCard>
 )
 
-export default NewItem;
+const mapDispatchToProps = dispatch => bindActionCreators(FormAction, dispatch);
+
+export default connect(null, mapDispatchToProps)(NewItem);
