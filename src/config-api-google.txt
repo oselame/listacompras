@@ -1,0 +1,32 @@
+https://developers.google.com/custom-search/
+
+
+imageObjectApi
+
+cx
+<script>
+  (function() {
+    var cx = '012648785220306455351:hsaxt5uohgy';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+
+key:
+AIzaSyDQuKLfIN84QJSRbEXxb7pYqIlcWTznzMM
+
+url base:
+https://www.googleapis.com/customsearch/v1?
+
+parametros busca
+searchType:image
+lr:lang_pt
+num:1
+q:café
+key:AIzaSyDQuKLfIN84QJSRbEXxb7pYqIlcWTznzMM
+cx:012648785220306455351:hsaxt5uohgy
