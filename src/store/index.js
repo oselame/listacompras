@@ -8,7 +8,7 @@ import { loadState, saveState  } from './localStorage';
 
 const localStorageState = loadState();
 const sagaMiddleware = createSagaMiddleware();
-const middlewares = { sagaMiddleware };
+const middlewares = [ sagaMiddleware ];
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 

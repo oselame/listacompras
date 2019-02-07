@@ -3,24 +3,22 @@
     display: flex;
     flex-direction: column;
     height: 100%;
-}
-
-.card-action-area {
+  }
+  
+  .card-action-area {
     flex: 1;
-}
-
-.card-content {
+  }
+  
+  .card-content {
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
-
-.card-footer {
+  }
+  
+  .card-footer{
     height: 40px;
-}
-
-.card-img {
-    object-fit: cover
-}
-
-
+  }
+  
+  .card-img {
+    object-fit: cover;
+  }

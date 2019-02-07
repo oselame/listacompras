@@ -10,8 +10,9 @@ export const services = {
             cx: '012648785220306455351:hsaxt5uohgy',
             q: product,
         };
+        // console.log(params);
         
-        return axios.get('https://www.googleapis.com/customsearch/v1?', params)
+        return axios.get('https://www.googleapis.com/customsearch/v1', { params })
             .then( resp => resp.data.items[0].link )
             .catch( err => err );
 

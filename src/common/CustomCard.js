@@ -54,7 +54,7 @@ CustomCard.propTypes = {
     children: PropTypes.element.isRequired,
     footer: PropTypes.element,
     link: PropTypes.string.isRequired,
-    image: PropTypes.string
+    image: PropTypes.any
 }
 
 export default CustomCard;
