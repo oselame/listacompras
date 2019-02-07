@@ -5,8 +5,23 @@
     align-items: center
 }
 
-.new-list-container{
+.new-list-container {
     width: 80%;
 
 }
 
+.home-image {
+    background-image: url(https://helioprint.com.br/blog/wp-content/uploads/2017/07/organizar-prateleiras-supermercado-min.jpg);
+    height: 800px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.new-list-container > a > div {
+    background-color: rgb(255, 255, 255, 0.8);
+}
+
+.list-container > a > div {
+    background-color: rgb(255, 255, 255, 0.8);
+}

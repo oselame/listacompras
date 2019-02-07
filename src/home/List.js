@@ -13,13 +13,14 @@ const List = (props) => (
         containerClass="list-container"
         link="/lista/edicao"
         footer={ <ListFooter total={props.total} /> }
+        cardClass={ props.openedItems < 1 ? 'closed-list' : 'opened-list' }
         >
 
         <div>
             <p className="title">{ props.list }</p>
             <div className="list-card-body">
 
-                <ListItem icon={faShoppingBasket} text={`${props.openedItems} Item(s) Restante`} />
+                <ListItem icon={faShoppingBasket} text={`${props.openedItems} Item(s) Restantes`} />
 
                 <ListItem icon={faCheck} text={`${props.closedItems} Item(s) Comprados`} />
 

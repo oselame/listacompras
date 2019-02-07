@@ -11,7 +11,7 @@ import { Creators as ListAction } from '../store/actions/list';
 
 
 const Home = (props) => (
-  <div className='page-container'>
+  <div className='page-container home-image'>
     <NewList 
       newList={props.newList}
     />
